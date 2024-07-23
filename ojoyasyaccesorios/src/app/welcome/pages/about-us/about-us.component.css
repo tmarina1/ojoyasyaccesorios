@@ -1,0 +1,44 @@
+.contenedor_aboutUS {
+  background-color: white;
+  width: 90%;
+  border-radius: 15px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  margin-top: 50px;
+}
+
+.titulo_aboutUs {
+  text-align: center;
+  font-weight: bold;
+  font-size: xx-large;
+  padding: 10px;
+}
+
+#sobre_nosotros,
+.div_doble {
+  text-align: center;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+}
+
+p {
+  text-align: justify;
+}
+
+.info_aboutUs {
+  margin-bottom: 10px;
+}
+
+.icono_gema {
+  font-size: xx-large;
+}
+
+#img_anillo {
+  max-width: 150px;
+  height: 100px;
+}
+
+.div_img_anillo {
+  text-align: center;
+}

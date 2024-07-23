@@ -1,0 +1,23 @@
+#titulo_pagina {
+  text-align: center;
+  font-weight: bolder;
+  font-size: xx-large;
+  color: white;
+  text-shadow: 1px 2px 7px black;
+}
+
+#titulo_pagina p {
+  font-size: x-large;
+}
+
+.contenedor_home {
+  padding: 50px 0 0;
+}
+
+.contenedor_informacion_home {
+  background-color: white;
+  width: 90%;
+  border-radius: 15px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  margin-top: 50px;
+}

@@ -1,0 +1,24 @@
+/* You can add global styles to this file, and also import other style files */
+
+*,
+i,
+a {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: large;
+  font-style: normal;
+  text-decoration: none;
+}
+
+body {
+  background-image: url("/assets/cool-background.svg");
+  background-size: cover;
+}
+
+@media (max-width: 600px) {
+  body {
+    background-position: center;
+    background-attachment: fixed;
+    height: 100vh;
+  }
+}

@@ -1,0 +1,54 @@
+<app-navbar></app-navbar>
+<div class="div_contenedor">
+  <div clas="contenedor">
+    <h5 class="text-center titulo">Nuevo producto</h5>
+    <form [formGroup]="form_create_product" (ngSubmit)="create_product()" enctype="multipart/form-data">
+      <div class="row justify-content-center">
+        <div class="col-sm-6">
+          <div class="mb-3">
+            <label class="form-label">Nombre: </label>
+            <input class="form-control" formControlName="name" type="text" placeholder="Ingrese el nombre">
+            <div class="alert alert-danger mt-3" [hidden]="name.valid || name.pristine">
+              El nombre es obligatorio
+            </div>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Marca: </label>
+            <input class="form-control" formControlName="brand" type="text" name="brand" placeholder="Ingrese la marca">
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Precio: </label>
+            <input class="form-control" type="number" formControlName="price" name="price"
+              placeholder="Ingrese el precio">
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Cantidad disponible: </label>
+            <input class="form-control" type="number" formControlName="stock" name="stock"
+              placeholder="Ingrese la disponibilidad">
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="mb-3">
+            <label class="form-label">Descripción: </label>
+            <input formControlName="description" class="form-control" type="text" name="description"
+              placeholder="Ingrese la descripción">
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Peso: </label>
+            <input class="form-control" type="number" formControlName="weight" name="weight"
+              placeholder="Ingrese el peso">
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Imagen: </label>
+            <input class="form-control" type="file" formControlName="image" name="image">
+          </div>
+          <div class="div_botones">
+            <button class="btn boton_guardar" [disabled]="form_create_product.invalid">Guardar</button>
+            <a routerLink="/admin/manage-products" class="btn btn-volver">Volver</a>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<app-footer></app-footer>

@@ -1,0 +1,35 @@
+.contenedor {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contenedor_tabla {
+  border-radius: 10px;
+}
+
+.titulo {
+  text-align: center;
+  font-weight: bolder;
+  font-size: xx-large;
+  color: white;
+  text-shadow: 1px 2px 7px black;
+  padding: 20px;
+}
+
+.agregar_producto {
+  font-size: larger;
+  align-items: end;
+  color: black;
+  font-weight: bold;
+}
+
+.contenedor_agregar_producto {
+  margin-bottom: 10px;
+  width: fit-content;
+}
+
+.btn-volver {
+  background-color: #f6ae84;
+  color: white;
+}

@@ -1,0 +1,41 @@
+.contenedor_productos {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.div_productos {
+  width: 90%;
+}
+
+#titulo_pagina {
+  text-align: center;
+  font-weight: bolder;
+  font-size: xx-large;
+  color: white;
+  text-shadow: 1px 2px 7px black;
+}
+
+.tarjeta {
+  box-shadow: 1px 2px 7px black;
+}
+
+.btn-visualizar {
+  background-color: #495fa6;
+  color: white;
+}
+
+.tarjeta_producto {
+  color: black;
+}
+
+.texto_descripcion {
+  text-align: justify;
+}
+
+.img_producto {
+  width: 200px;
+  height: 300px;
+}

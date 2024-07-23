@@ -1,0 +1,41 @@
+<app-navbar></app-navbar>
+<div class="contenedor">
+  <h5 class="titulo">Gestion de productos</h5>
+  <div class="contenedor_agregar_producto row">
+    <div class="col-9">
+      <a routerLink="/admin/new-product" class="agregar_producto">Agregar nuevo producto
+        <i class="fa-solid fa-circle-plus"></i>
+      </a>
+    </div>
+    <div class="col-3">
+      <a routerLink="/admin/home" class="btn btn-volver">Volver</a>
+    </div>
+  </div>
+  <div class="table-responsive contenedor_tabla">
+    <table class="table caption-top table-striped">
+      <thead class="table-dark">
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Marca</th>
+          <th scope="col">Disponibilidad</th>
+          <th scope="col">Precio</th>
+          <th scope="col">Eliminar</th>
+          <th scope="col">Editar</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">1</th>
+          <td>Mark</td>
+          <td>Otto</td>
+          <td>@mdo</td>
+          <td>@mdo</td>
+          <td><button class="btn bg-danger"><i class="fa-solid fa-trash"></i></button></td>
+          <td><a routerLink="/admin/edit-product" class="btn bg-primary"><i class="fa-solid fa-edit"></i></a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<app-footer></app-footer>

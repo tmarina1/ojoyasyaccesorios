@@ -1,0 +1,94 @@
+.navbar {
+  background-color: white;
+  height: 80px;
+  margin: 20px;
+  border-radius: 15px;
+  padding: 0.2rem;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  position: relative;
+  display: block;
+}
+
+#logo_navbar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+
+#div_navbar {
+  border-radius: 10px;
+}
+
+#boton_iniciar_sesion {
+  background-color: #495fa6;
+  color: #fff;
+  padding: 7px 12px;
+  border-radius: 50px;
+  text-decoration: none;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 5px;
+}
+
+#boton_iniciar_sesion:hover {
+  background-color: rgba(60, 85, 167, 0.882);
+  box-shadow: 0 4px 16px #495fa6;
+  transition: all 0.2s ease;
+}
+
+#boton_registrarse {
+  background-color: #f6ae84;
+  color: #fff;
+  padding: 7px 12px;
+  border-radius: 50px;
+  text-decoration: none;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 5px;
+}
+
+#boton_registrarse:hover {
+  background-color: #f7955d;
+  box-shadow: 0 4px 16px #495fa6;
+  transition: all 0.2s ease;
+}
+
+#botones_gestion_usuario {
+  display: flex;
+  gap: 10px;
+}
+
+.navbar-toggler {
+  border: none;
+}
+
+.nav-link {
+  color: #666777;
+  position: relative;
+}
+
+.nav-link:hover {
+  color: black;
+  font-weight: bold;
+}
+
+.nav-link::before {
+  content: "";
+  background-color: #495fa6;
+  height: 2px;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  visibility: hidden;
+}
+
+.nav-link:hover::before {
+  visibility: visible;
+  width: 100%;
+}
+
+#offcanvasNavbarLabel {
+  font-size: medium;
+}
+
+#div_dropdown {
+  display: flex;
+  gap: 10px;
+}

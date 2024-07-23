@@ -1,0 +1,42 @@
+.div_contenedor {
+  width: fit-content;
+  height: auto;
+  padding: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 15px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  margin-top: 50px;
+  background-color: white;
+  margin-bottom: 40px;
+}
+
+.conteiner_login {
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.titulo_login {
+  font-weight: bold;
+  font-size: x-large;
+}
+
+label {
+  font-weight: bold;
+}
+
+input {
+  border-color: #495fa6;
+  border-width: 1.35px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 2px 10px;
+}
+
+.boton_ingresar {
+  background-color: #495fa6;
+  color: white;
+}
+
+.botones_login {
+  text-align: center;
+}
