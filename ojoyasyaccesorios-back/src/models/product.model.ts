@@ -8,7 +8,7 @@ export interface Product {
   stock: number;
   weight: number;
   price: number;
-  image: string;
+  image: String;
 }
 
 export const ProductSchema = new Schema<Product>(

@@ -40,7 +40,8 @@
           </div>
           <div class="mb-3">
             <label class="form-label">Imagen: </label>
-            <input class="form-control" type="file" formControlName="image" name="image">
+            <input class="form-control" type="file" (change)="up_load_file($event)" formControlName="image"
+              name="image">
           </div>
           <div class="div_botones">
             <button class="btn boton_guardar" [disabled]="form_create_product.invalid">Guardar</button>

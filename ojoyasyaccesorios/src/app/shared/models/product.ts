@@ -6,5 +6,5 @@ export class Product {
   price!: number;
   stock!: number;
   weight!: number;
-  image!: string;
+  image!: File;
 }

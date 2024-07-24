@@ -22,6 +22,7 @@ const port = 5000;
 
 app.use("/api/products", productrouter);
 app.use(express.static("public"));
+app.use("/uploads", express.static("uploads"));
 
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "index.html"));

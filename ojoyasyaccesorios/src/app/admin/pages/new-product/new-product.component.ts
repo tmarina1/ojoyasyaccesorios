@@ -10,6 +10,7 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class NewProductComponent {
   product: Product = new Product();
+  selected_file: File | null = null;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -44,6 +45,13 @@ export class NewProductComponent {
     return this.form_create_product.get('image') as FormControl;
   }
 
+  up_load_file(event: any) {
+    const file = event.target.files[0];
+    if (file) {
+      this.selected_file = file;
+    }
+  }
+
   form_create_product = this.formBuilder.group({
     name: ['', Validators.required],
     brand: ['', Validators.required],
@@ -51,7 +59,7 @@ export class NewProductComponent {
     stock: [null, Validators.required],
     description: ['', Validators.required],
     weight: [null, Validators.required],
-    image: ['', Validators.required],
+    image: [null, Validators.required],
   });
 
   create_product() {
@@ -63,9 +71,20 @@ export class NewProductComponent {
       this.product.price = this.form_create_product.get('price')?.value!;
       this.product.stock = this.form_create_product.get('stock')?.value!;
       this.product.weight = this.form_create_product.get('weight')?.value!;
-      this.product.image = this.form_create_product.get('image')?.value!;
 
-      this.product_service.create(this.product).subscribe(
+      const formData = new FormData();
+      formData.append('name', this.product.name);
+      formData.append('brand', this.product.brand);
+      formData.append('description', this.product.description);
+      formData.append('price', this.product.price.toString());
+      formData.append('stock', this.product.stock.toString());
+      formData.append('weight', this.product.weight.toString());
+
+      if (this.selected_file) {
+        formData.append('image', this.selected_file);
+      }
+
+      this.product_service.create(formData).subscribe(
         (response) => {
           console.log('Product created successfully', response);
         },

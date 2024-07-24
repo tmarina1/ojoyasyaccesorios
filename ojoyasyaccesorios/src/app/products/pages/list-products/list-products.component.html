@@ -2,20 +2,20 @@
 <h5 id="titulo_pagina">Nuestros productos</h5>
 <div class="contenedor_productos">
   <div class="row row-cols-1 row-cols-md-3 g-4 mt-4 div_productos">
-    <div class="col">
+    <div class="col" *ngFor="let product of products">
       <div class="card h-100 tarjeta">
         <a class="tarjeta_producto" routerLink="/products:/">
-          <img src="..." class="card-img-top img_producto" alt="Imagen de producto">
-          <div class="card-body">
-            <h5 class="card-title">Nombre</h5>
-            <p class="card-text texto_descripcion">This is a wider card with supporting text below as a natural lead-in
-              to additional
-              content. This content is a little bit longer.</p>
+          <img *ngIf="product.image" class="card-img-top img_producto" [src]="'http://localhost:5000/' + product.image"
+            alt="{{ product.name }}">
+          <div class="card-body texto_body">
+            <h5 class="card-title">{{ product.name }}</h5>
+            <p class="card-text texto_descripcion">{{ product.description }}</p>
           </div>
           <div class="card-footer">
-            <p class=""><strong>Precio:</strong> $</p>
-            <p class=""><strong>Disponibilidad:</strong> </p>
+            <p class=""><strong>Precio: </strong> $ {{ product.price }}</p>
+            <p class=""><strong>Disponibilidad: </strong> {{ product.stock }}</p>
           </div>
+
         </a>
       </div>
     </div>

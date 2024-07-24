@@ -1,8 +1,20 @@
 import { Router } from "express";
+import multer from "multer";
 import { Product, ProductModel } from "../models/product.model";
 import asyncHandler from "express-async-handler";
 
 const router = Router();
+
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, "uploads/"); // Carpeta donde se guardarán las imágenes
+  },
+  filename: function (req, file, cb) {
+    cb(null, Date.now() + "-" + file.originalname);
+  },
+});
+
+const upload = multer({ storage: storage });
 
 router.get(
   "/",
@@ -22,8 +34,10 @@ router.get(
 
 router.post(
   "/create-product",
+  upload.single("image"),
   asyncHandler(async (req: any, res: any) => {
-    const { name, brand, description, stock, weight, price, image } = req.body;
+    const { name, brand, description, stock, weight, price } = req.body;
+    const image = req.file && req.file.path;
     const product_exist = await ProductModel.findOne({ name });
     if (product_exist) {
       res.send("Producto existe actualmente");

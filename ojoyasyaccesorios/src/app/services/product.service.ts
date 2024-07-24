@@ -14,7 +14,7 @@ import {
 export class ProductService {
   constructor(private http: HttpClient) {}
 
-  create(product: Product) {
+  create(product: FormData) {
     return this.http.post<Product>(PORDUCT_CREATE, product);
   }
 
