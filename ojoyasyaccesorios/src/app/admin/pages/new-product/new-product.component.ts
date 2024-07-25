@@ -56,9 +56,9 @@ export class NewProductComponent {
     name: ['', Validators.required],
     brand: ['', Validators.required],
     price: [null, Validators.required],
-    stock: [null, Validators.required],
+    stock: [null, [Validators.required, Validators.min(1)]],
     description: ['', Validators.required],
-    weight: [null, Validators.required],
+    weight: [null, [Validators.required, Validators.min(1)]],
     image: [null, Validators.required],
   });
 

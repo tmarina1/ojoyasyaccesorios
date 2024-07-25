@@ -2,46 +2,69 @@
 <div class="div_contenedor">
   <div clas="contenedor">
     <h5 class="text-center titulo">Nuevo producto</h5>
+    <div class="alert alert-warning" [hidden]="form_create_product.valid">
+      Complete todos los campos obligatorios identificados con un asterisco (*).
+    </div>
     <form [formGroup]="form_create_product" (ngSubmit)="create_product()" enctype="multipart/form-data">
       <div class="row justify-content-center">
         <div class="col-sm-6">
           <div class="mb-3">
-            <label class="form-label">Nombre: </label>
+            <label class="form-label">Nombre: *</label>
             <input class="form-control" formControlName="name" type="text" placeholder="Ingrese el nombre">
             <div class="alert alert-danger mt-3" [hidden]="name.valid || name.pristine">
               El nombre es obligatorio
             </div>
           </div>
           <div class="mb-3">
-            <label class="form-label">Marca: </label>
+            <label class="form-label">Marca: *</label>
             <input class="form-control" formControlName="brand" type="text" name="brand" placeholder="Ingrese la marca">
+            <div class="alert alert-danger mt-3" [hidden]="brand.valid || brand.pristine">
+              La marca es obligatoria
+            </div>
           </div>
           <div class="mb-3">
-            <label class="form-label">Precio: </label>
+            <label class="form-label">Precio: *</label>
             <input class="form-control" type="number" formControlName="price" name="price"
               placeholder="Ingrese el precio">
+            <div class="alert alert-danger mt-3" [hidden]="price.valid || price.pristine">
+              El precio es obligatorio
+            </div>
           </div>
           <div class="mb-3">
-            <label class="form-label">Cantidad disponible: </label>
+            <label class="form-label">Cantidad disponible: *</label>
             <input class="form-control" type="number" formControlName="stock" name="stock"
               placeholder="Ingrese la disponibilidad">
+            <div class="alert alert-danger mt-3" [hidden]="stock.valid || stock.pristine">
+              <span *ngIf="stock.errors?.['required']">La cantidad es obligatoria</span>
+              <span *ngIf="stock.errors?.['min']">La cantidad mínima es 1</span>
+            </div>
           </div>
         </div>
         <div class="col-sm-6">
           <div class="mb-3">
-            <label class="form-label">Descripción: </label>
+            <label class="form-label">Descripción: *</label>
             <input formControlName="description" class="form-control" type="text" name="description"
               placeholder="Ingrese la descripción">
+            <div class="alert alert-danger mt-3" [hidden]="description.valid || description.pristine">
+              La descripción es obligatoria
+            </div>
           </div>
           <div class="mb-3">
-            <label class="form-label">Peso: </label>
+            <label class="form-label">Peso: *</label>
             <input class="form-control" type="number" formControlName="weight" name="weight"
               placeholder="Ingrese el peso">
+            <div class="alert alert-danger mt-3" [hidden]="weight.valid || weight.pristine">
+              <span *ngIf="weight.errors?.['required']">El peso es obligatorio</span>
+              <span *ngIf="weight.errors?.['min']">El peso mínimo es 1g</span>
+            </div>
           </div>
           <div class="mb-3">
-            <label class="form-label">Imagen: </label>
+            <label class="form-label">Imagen: *</label>
             <input class="form-control" type="file" (change)="up_load_file($event)" formControlName="image"
               name="image">
+            <div class="alert alert-danger mt-3" [hidden]="image.valid || image.pristine">
+              La imagen es obligatoria
+            </div>
           </div>
           <div class="div_botones">
             <button class="btn boton_guardar" [disabled]="form_create_product.invalid">Guardar</button>
