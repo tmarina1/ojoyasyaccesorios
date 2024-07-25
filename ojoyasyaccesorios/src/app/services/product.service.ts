@@ -6,7 +6,7 @@ import {
   PRODUCTS_URL,
   PRODUCTS_URL_BY_ID,
   PORDUCT_CREATE,
-} from '../shared/constants/urls';
+} from '../constants/urls';
 
 @Injectable({
   providedIn: 'root',
