@@ -6,6 +6,7 @@ import {
   PRODUCTS_URL,
   PRODUCTS_URL_BY_ID,
   PORDUCT_CREATE,
+  PRODUCT_DELETE,
 } from '../constants/urls';
 
 @Injectable({
@@ -24,5 +25,9 @@ export class ProductService {
 
   get_product_by_url(id: number): Observable<Product> {
     return this.http.get<Product>(PRODUCTS_URL_BY_ID + id);
+  }
+
+  delete(id: string): Observable<boolean> {
+    return this.http.delete<boolean>(PRODUCT_DELETE + id);
   }
 }

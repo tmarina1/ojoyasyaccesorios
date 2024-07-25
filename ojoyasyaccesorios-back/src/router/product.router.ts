@@ -2,6 +2,7 @@ import { Router } from "express";
 import multer from "multer";
 import { Product, ProductModel } from "../models/product.model";
 import asyncHandler from "express-async-handler";
+import { ObjectId } from "mongodb";
 
 const router = Router();
 
@@ -55,6 +56,18 @@ router.post(
       image,
     };
     await ProductModel.create(newProduct);
+  })
+);
+
+router.delete(
+  "/delete-product/:id",
+  asyncHandler(async (req, res) => {
+    try {
+      await ProductModel.deleteOne({ _id: new ObjectId(req.params.id) });
+      res.send(true);
+    } catch {
+      res.send(false);
+    }
   })
 );
 

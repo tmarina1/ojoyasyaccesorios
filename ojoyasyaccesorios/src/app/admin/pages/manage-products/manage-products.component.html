@@ -12,30 +12,46 @@
     </div>
   </div>
   <div class="table-responsive contenedor_tabla">
+    <div *ngIf="success_alert" class="alert alert-success text-center">
+      <a>Producto eliminado correctamente.</a>
+    </div>
+    <div *ngIf="error_alert" class="alert alert-danger text-center">
+      <a>No se pudo eliminar el producto.</a>
+    </div>
     <table class="table caption-top table-striped">
       <thead class="table-dark">
         <tr>
-          <th scope="col">ID</th>
           <th scope="col">Nombre</th>
           <th scope="col">Marca</th>
           <th scope="col">Disponibilidad</th>
           <th scope="col">Precio</th>
+          <th scope="col">Peso</th>
           <th scope="col">Eliminar</th>
           <th scope="col">Editar</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-          <td>@mdo</td>
-          <td><button class="btn bg-danger"><i class="fa-solid fa-trash"></i></button></td>
-          <td><a routerLink="/admin/edit-product" class="btn bg-primary"><i class="fa-solid fa-edit"></i></a></td>
+        <tr *ngFor="let product of products">
+          <td>{{product.name}}</td>
+          <td>{{product.brand}}</td>
+          <td>{{product.stock}}</td>
+          <td>{{product.price}}</td>
+          <td>{{product.weight}}</td>
+          <td><button class="btn bg-danger" (click)="alert_message(product.id)"><i
+                class="fa-solid fa-trash"></i></button></td>
+          <td><a routerLink="/admin/edit-product/{{product.id}}" class="btn bg-primary"><i
+                class="fa-solid fa-edit"></i></a>
+          </td>
         </tr>
       </tbody>
     </table>
+    <div *ngIf="show_alert" class="alert alert-danger alert-dismissible fade show confirm_alert" role="alert">
+      <p>¿Desea elminar el elemento seleccionado?</p>
+      <div class="mt-2">
+        <button (click)="delete_product()" class="btn btn-danger">Confirmar</button>
+        <button (click)="cancel_delete()" class="btn btn-secondary">Cancelar</button>
+      </div>
+    </div>
   </div>
 </div>
 <app-footer></app-footer>

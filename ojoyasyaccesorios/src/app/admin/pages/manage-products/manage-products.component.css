@@ -33,3 +33,25 @@
   background-color: #f6ae84;
   color: white;
 }
+
+.confirm_alert {
+  position: fixed;
+  top: 20px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 1050;
+  width: 300px;
+  padding: 15px;
+  border-radius: 4px;
+}
+
+.btn {
+  margin-right: 5px;
+}
+
+p,
+a {
+  font-weight: bold;
+}
