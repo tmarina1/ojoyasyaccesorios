@@ -16,8 +16,16 @@ p {
   border-radius: 16px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   margin-right: 5px;
+  position: relative;
+  min-height: 240px;
 }
 
 .fila {
+  width: 100%;
+}
+
+.boton_ingresar {
+  position: absolute;
+  bottom: 0px;
   width: 100%;
 }
