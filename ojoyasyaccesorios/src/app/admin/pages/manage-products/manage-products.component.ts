@@ -31,6 +31,9 @@ export class ManageProductsComponent {
     this.productService.delete(this.id_product).subscribe((response) => {
       if (response) {
         this.success_alert = true;
+        this.productService.get_all().subscribe((products) => {
+          this.products = products;
+        });
       } else {
         this.error_alert = false;
       }
