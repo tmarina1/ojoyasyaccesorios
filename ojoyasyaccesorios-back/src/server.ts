@@ -4,6 +4,7 @@ import path from "path";
 
 import express from "express";
 import cors from "cors";
+import bodyParser from "body-parser";
 import { db_connect } from "./configs/database.config";
 import productrouter from "./router/product.router";
 
@@ -11,6 +12,7 @@ db_connect();
 
 const app = express();
 app.use(express.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(
   cors({
     credentials: true,

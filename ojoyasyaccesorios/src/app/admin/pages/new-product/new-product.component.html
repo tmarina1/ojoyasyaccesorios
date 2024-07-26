@@ -5,6 +5,9 @@
     <div class="alert alert-warning" [hidden]="form_create_product.valid">
       Complete todos los campos obligatorios identificados con un asterisco (*).
     </div>
+    <div *ngIf="alert_success" class="alert alert-success">
+      Elemento creado correctamente
+    </div>
     <form [formGroup]="form_create_product" (ngSubmit)="create_product()" enctype="multipart/form-data">
       <div class="row justify-content-center">
         <div class="col-sm-6">

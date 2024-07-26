@@ -71,4 +71,20 @@ router.delete(
   })
 );
 
+router.patch(
+  "/update-product/:id",
+  upload.single("image"),
+  asyncHandler(async (req, res) => {
+    try {
+      await ProductModel.updateOne(
+        { _id: new ObjectId(req.params.id) },
+        { $set: req.body }
+      );
+      res.send(true);
+    } catch {
+      res.send(false);
+    }
+  })
+);
+
 export default router;

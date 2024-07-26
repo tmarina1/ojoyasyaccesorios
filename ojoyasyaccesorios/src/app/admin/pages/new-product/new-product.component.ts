@@ -11,6 +11,7 @@ import { ProductService } from 'src/app/services/product.service';
 export class NewProductComponent {
   product: Product = new Product();
   selected_file: File | null = null;
+  alert_success: boolean = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -84,9 +85,12 @@ export class NewProductComponent {
         formData.append('image', this.selected_file);
       }
 
+      console.log(formData);
+
       this.product_service.create(formData).subscribe(
         (response) => {
           console.log('Product created successfully', response);
+          this.alert_success = true;
         },
         (error) => {
           console.error('Error creating product', error);

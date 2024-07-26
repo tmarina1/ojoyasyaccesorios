@@ -1,30 +1,44 @@
 <app-navbar></app-navbar>
 <div class="div_contenedor">
   <div clas="contenedor">
-    <h5 class="text-center titulo">Editar producto : 1</h5>
-    <form>
+    <h5 class="text-center titulo">Editar producto</h5>
+    <div *ngIf="alert_success" class="alert alert-success">
+      ¡Producto actualizado exitosamente!
+    </div>
+    <div *ngIf="alert_error" class="alert alert-danger">
+      No se pudo actualizar el producto
+    </div>
+    <form [formGroup]="form_edit_product">
       <div class="row justify-content-center">
         <div class="col-sm-6">
           <div class="mb-3">
             <label class="form-label">Nombre: </label>
-            <input class="form-control" type="text" name="name" placeholder="Ingrese el nombre">
+            <input class="form-control" formControlName="name" type="text" name="name" placeholder="Ingrese el nombre">
           </div>
           <div class="mb-3">
             <label class="form-label">Precio: </label>
-            <input class="form-control" type="number" name="price" placeholder="Ingrese el precio">
+            <input class="form-control" formControlName="price" type="number" name="price"
+              placeholder="Ingrese el precio">
           </div>
           <div class="mb-3">
             <label class="form-label">Cantidad disponible: </label>
-            <input class="form-control" type="number" name="stock" placeholder="Ingrese la disponibilidad">
+            <input class="form-control" formControlName="stock" type="number" name="stock"
+              placeholder="Ingrese la disponibilidad">
           </div>
         </div>
         <div class="col-sm-6">
           <div class="mb-3">
+            <label class="form-label">Descripcion: </label>
+            <input class="form-control" formControlName="description" type="text" name="description"
+              placeholder="Ingrese la descripción">
+          </div>
+          <div class="mb-3">
             <label class="form-label">Imagen: </label>
-            <input class="form-control" type="file" name="image">
+            <input class="form-control" formControlName="image" type="file" name="image">
           </div>
           <div class="div_botones">
-            <button class="btn boton_guardar">Guardar</button>
+            <button class="btn boton_guardar" (click)="update_product()"
+              [disabled]="!form_edit_product.dirty">Guardar</button>
             <a routerLink="/admin/manage-products" class="btn btn-volver">Volver</a>
           </div>
         </div>
