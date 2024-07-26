@@ -2,37 +2,61 @@
 <div class="div_contenedor">
   <div class="conteiner_register ">
     <h5 class="titulo_register text-center p-5"> Crear una cuenta </h5>
-    <form>
+    <form [formGroup]="form_register_user">
       <div class="row justify-content-center">
         <div class="col-sm-6">
           <div class="mb-3">
             <label class="form-label">Nombre: </label>
-            <input class="form-control" type="text" name="name" placeholder="Ingrese su nombre">
+            <input class="form-control" type="text" name="name" formControlName="name" placeholder="Ingrese su nombre">
+            <div class="alert alert-danger mt-3" [hidden]="name.valid || name.pristine">
+              El nombre es obligatorio
+            </div>
           </div>
           <div class="mb-3">
             <label class="form-label">Apellidos: </label>
-            <input class="form-control" type="text" name="last_name" placeholder="Ingrese sus apellidos">
+            <input class="form-control" type="text" name="last_name" formControlName="last_name"
+              placeholder="Ingrese sus apellidos">
+            <div class="alert alert-danger mt-3" [hidden]="last_name.valid || last_name.pristine">
+              El apellido es obligatorio
+            </div>
           </div>
           <div class="mb-3">
             <label class="form-label">Telefono: </label>
-            <input class="form-control" type="number" name="phone" placeholder="Ingrese su telefono">
+            <input class="form-control" type="number" name="phone" formControlName="phone"
+              placeholder="Ingrese su telefono">
+            <div class="alert alert-danger mt-3" [hidden]="phone.valid || phone.pristine">
+              El telefono es obligatorio
+            </div>
           </div>
           <div class="mb-3">
             <label class="form-label">Correo: </label>
-            <input class="form-control" type="email" name="email" placeholder="Ingrese su correo">
+            <input class="form-control" type="email" name="email" formControlName="email"
+              placeholder="Ingrese su correo">
+            <div class="alert alert-danger mt-3" [hidden]="email.valid || email.pristine">
+              <span *ngIf="email.errors?.['required']">El correo es obligatorio</span>
+              <span *ngIf="email.errors?.['email']">El correo es invalido</span>
+            </div>
           </div>
         </div>
         <div class="col-sm-6">
           <div class="mb-3">
             <label class="form-label">Dirección: </label>
-            <input class="form-control" type="text" name="address" placeholder="Ingrese su dirección">
+            <input class="form-control" type="text" name="address" formControlName="address"
+              placeholder="Ingrese su dirección">
+            <div class="alert alert-danger mt-3" [hidden]="address.valid || address.pristine">
+              La dirección es obligatoria
+            </div>
           </div>
           <div class="mb-3">
             <label class="form-label">Contraseña: </label>
-            <input class="form-control" type="password" name="password" placeholder="Ingrese su contraseña">
+            <input class="form-control" type="password" name="password" formControlName="password"
+              placeholder="Ingrese su contraseña">
+            <div class="alert alert-danger mt-3" [hidden]="password.valid || password.pristine">
+              La contraseña es obligatoria
+            </div>
           </div>
           <div class="mb-3">
-            <label class="form-label">Contraseña: </label>
+            <label class="form-label">Confirmar contraseña: </label>
             <input class="form-control" type="password" name="password" placeholder="Ingrese otra vez su contraseña">
           </div>
           <div class="div_botones">
