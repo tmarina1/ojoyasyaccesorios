@@ -8,6 +8,9 @@
     <div *ngIf="alert_success" class="alert alert-success">
       Elemento creado correctamente
     </div>
+    <div *ngIf="alert_error" class="alert alert-danger">
+      Valide los campos ingresados o intente nuevamente
+    </div>
     <form [formGroup]="form_create_product" (ngSubmit)="create_product()" enctype="multipart/form-data">
       <div class="row justify-content-center">
         <div class="col-sm-6">

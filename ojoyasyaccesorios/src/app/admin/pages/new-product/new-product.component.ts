@@ -12,6 +12,7 @@ export class NewProductComponent {
   product: Product = new Product();
   selected_file: File | null = null;
   alert_success: boolean = false;
+  alert_error: boolean = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -94,6 +95,7 @@ export class NewProductComponent {
         },
         (error) => {
           console.error('Error creating product', error);
+          this.alert_error = true;
         }
       );
     } else {

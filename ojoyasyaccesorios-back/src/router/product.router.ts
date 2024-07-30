@@ -41,7 +41,7 @@ router.post(
     const image = req.file && req.file.path;
     const product_exist = await ProductModel.findOne({ name });
     if (product_exist) {
-      res.send("Producto existe actualmente");
+      res.send(false);
       return;
     }
 
@@ -56,6 +56,7 @@ router.post(
       image,
     };
     await ProductModel.create(newProduct);
+    res.send(true);
   })
 );
 

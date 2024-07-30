@@ -16,8 +16,8 @@ import {
 export class ProductService {
   constructor(private http: HttpClient) {}
 
-  create(product: FormData) {
-    return this.http.post<Product>(PORDUCT_CREATE, product);
+  create(product: FormData): Observable<Boolean> {
+    return this.http.post<Boolean>(PORDUCT_CREATE, product);
   }
 
   get_all(): Observable<Product[]> {

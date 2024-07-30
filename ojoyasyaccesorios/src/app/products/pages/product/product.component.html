@@ -1,17 +1,17 @@
 <app-navbar></app-navbar>
-<div class="contenedor">
+<div *ngIf="product" class="contenedor">
   <div class="row">
-    <div class="col-sm-6">
-      <img href="">
+    <div class="col-sm-6 img">
+      <img class="img_producto" [src]="'http://localhost:5000/' + product.image">
     </div>
     <div class="col-sm-5 contenido">
-      <h5 class="titulo">Nombre</h5>
+      <h5 class="titulo">{{product.name}}</h5>
       <div class="elementos mt-4">
-        <p><strong>Marca: </strong></p>
-        <p><strong>Cant disponible: </strong></p>
-        <p><strong>Descripción: </strong></p>
-        <p><strong>Peso: </strong></p>
-        <p class="text-center"><strong>$ 100.000</strong></p>
+        <p><strong>Marca: </strong>{{product.brand}}</p>
+        <p><strong>Cant disponible: </strong>{{product.stock}}</p>
+        <p><strong>Descripción: </strong>{{product.description}}</p>
+        <p><strong>Peso: </strong>{{product.weight}}</p>
+        <p class="text-center"><strong>$ {{product.price}}</strong></p>
         <button class="btn bg-success btn_comprar">Comprar</button>
         <a routerLink="/product/list-products" class="btn btn_volver">Volver</a>
       </div>
